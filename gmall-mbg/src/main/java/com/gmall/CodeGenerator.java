@@ -23,7 +23,7 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
 
-        String moduleName = "ums";
+        String moduleName = "test";
 
         // 1、创建代码生成器
         AutoGenerator mpg = new AutoGenerator();
@@ -40,15 +40,16 @@ public class CodeGenerator {
         gc.setDateType(DateType.ONLY_DATE);//定义生成的实体类中日期类型
         gc.setSwagger2(true);//开启Swagger2模式
         gc.setBaseColumnList(true);
+        gc.setBaseResultMap(true); //生成每个xml的BaseResultMap
 
         mpg.setGlobalConfig(gc);
 
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.196.33:3307/gmall_"+moduleName+"?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://localhost:3307/employee?characterEncoding=utf8&serverTimezone=CTT");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("root");
+        dsc.setPassword("123456");
         dsc.setDbType(DbType.MYSQL);
         mpg.setDataSource(dsc);
 
@@ -64,7 +65,8 @@ public class CodeGenerator {
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude(moduleName + "_\\w*");//设置要映射的表名
+        //strategy.setInclude(moduleName + "_\\w*");//设置要映射的表名
+        strategy.setInclude(new String[]{"dept","emp" });//设置要映射的表名
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
         strategy.setTablePrefix(pc.getModuleName() + "_");//设置表前缀不生成
         strategy.setEntityTableFieldAnnotationEnable(true);//是否生成实体时，生成字段注解

@@ -1,7 +1,5 @@
 package com.gmall.pms.controller;
-
 import com.alibaba.dubbo.config.annotation.Reference;
-
 import com.gmall.pms.service.ProductService;
 import com.gmall.to.CommonResult;
 import com.gmall.vo.PageInfoVo;
@@ -9,19 +7,21 @@ import com.gmall.vo.product.PmsProductParam;
 import com.gmall.vo.product.PmsProductQueryParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 /**
  * 商品管理Controller
  */
+@Slf4j
 @CrossOrigin
 @RestController
 @Api(tags = "PmsProductController", description = "商品管理")
 @RequestMapping("/product")
 public class PmsProductController {
+
     @Reference
     private ProductService productService;
 
@@ -30,6 +30,9 @@ public class PmsProductController {
     public Object create(@RequestBody PmsProductParam productParam,
                          BindingResult bindingResult) {
         //TODO 查询所有一级分类及子分类
+        log.debug("将要封装的商品信息是:{}", productParam);
+        //保存商品信息
+        productService.saveProduct(productParam);
         return new CommonResult().success(null);
     }
 
@@ -77,7 +80,8 @@ public class PmsProductController {
     public Object updatePublishStatus(@RequestParam("ids") List<Long> ids,
                                      @RequestParam("publishStatus") Integer publishStatus) {
         //TODO 批量上下架
-        return new CommonResult().success(null);
+        productService.updateProductPublishStatus(ids, publishStatus);
+        return new CommonResult().success("修改上架下架状态成功");
     }
 
     @ApiOperation("批量推荐商品")

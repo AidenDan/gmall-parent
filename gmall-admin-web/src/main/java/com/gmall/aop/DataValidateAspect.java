@@ -22,7 +22,7 @@ public class DataValidateAspect {
     *
     * */
 
-    @Around("execution(* com.gmall..*Controller.*(..))")
+    @Around("execution(* com.gmall.ums..*Controller.*(..))")
     public Object dataValidate(ProceedingJoinPoint point) {
         //前置通知
         Object proceed = null;
@@ -42,8 +42,8 @@ public class DataValidateAspect {
             proceed = point.proceed(args);
 
         } catch (Throwable throwable) {
-            //异常通知
-            throwable.printStackTrace();
+            //异常通知，抛出异常，让系统感知到异常
+            throw new RuntimeException(throwable);
         } finally {
             //后置通知
         }

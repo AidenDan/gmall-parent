@@ -52,7 +52,7 @@ public class UmsAdminController {
 
     @ApiOperation(value = "用户注册")
     @PostMapping(value = "/register")
-    public Object register(@RequestBody @Valid UmsAdminParam umsAdminParam, BindingResult result) {
+    public Object register(@RequestBody @Valid UmsAdminParam umsAdminParam, BindingResult result) throws ParseException {
         Admin admin = new Admin();
         //BindingResult用户获取校验的结果,errorCount>0就说明传入的数据有错误
        /* int errorCount = result.getErrorCount();
@@ -66,7 +66,8 @@ public class UmsAdminController {
         }
         log.info("注册用户的详情:{}, 校验的错误数:{}",umsAdminParam, errorCount);*/
         //TODO 完成注册功能
-        try {
+            //全局异常处理测试
+            int j = 1/0;
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             admin.setCreateTime(dateFormat.parse(dateFormat.format(new Date())));
             admin.setEmail(umsAdminParam.getEmail());
@@ -81,9 +82,7 @@ public class UmsAdminController {
             String md5DigestAsHex = DigestUtils.md5DigestAsHex(umsAdminParam.getPassword().getBytes());
             admin.setPassword(md5DigestAsHex);
             admin.setStatus(1);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
         //TODO 完成用户注册
         Admin registerAdmin = adminService.register(admin);
         return new CommonResult().success(registerAdmin);

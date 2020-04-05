@@ -3,7 +3,10 @@ package com.gmall.pms.service;
 import com.gmall.pms.entity.Product;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.gmall.vo.PageInfoVo;
+import com.gmall.vo.product.PmsProductParam;
 import com.gmall.vo.product.PmsProductQueryParam;
+
+import java.util.List;
 
 /**
  * <p>
@@ -26,6 +29,25 @@ public interface ProductService extends IService<Product> {
      */
     PageInfoVo productPageInfo(PmsProductQueryParam param);
 
+    /**
+     *
+     *
+     * @description: 保存商品信息
+     * @param null
+     * @return:
+     * @author: Aiden
+     * @time: 2020-3-2 18:14:46
+     */
+    void saveProduct(PmsProductParam productParam);
 
-
+    /**
+     *
+     *
+     * @description: 更新商品的上架下架状态
+     * @param null
+     * @return:
+     * @author: Aiden
+     * @time: 2020-3-3 17:19:11
+     */
+    void updateProductPublishStatus(List<Long> ids, Integer publishStatus);
 }

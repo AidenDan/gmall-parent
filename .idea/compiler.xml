@@ -6,15 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="gmall-mbg" />
-        <module name="gmall-sms" />
         <module name="gmall-oms" />
+        <module name="gmall-pms" />
+        <module name="gmall-lock" />
+        <module name="gmall-sms" />
+        <module name="gmall-ums" />
+        <module name="client1" />
+        <module name="gmall-cart" />
+        <module name="gmall-api" />
         <module name="gmall-common" />
         <module name="gmall-admin-web" />
+        <module name="gmall-mbg" />
+        <module name="rabbit-test" />
+        <module name="gmall-sso-server" />
         <module name="gmall-cms" />
-        <module name="gmall-api" />
-        <module name="gmall-pms" />
-        <module name="gmall-ums" />
+        <module name="gmall-shop-portal" />
+        <module name="gmall-search" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -24,12 +31,19 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="client1" options="-parameters" />
       <module name="gmall-admin-web" options="-parameters" />
+      <module name="gmall-cart" options="-parameters" />
       <module name="gmall-cms" options="-parameters" />
+      <module name="gmall-lock" options="-parameters" />
       <module name="gmall-oms" options="-parameters" />
       <module name="gmall-pms" options="-parameters" />
+      <module name="gmall-search" options="-parameters" />
+      <module name="gmall-shop-portal" options="-parameters" />
       <module name="gmall-sms" options="-parameters" />
+      <module name="gmall-sso-server" options="-parameters" />
       <module name="gmall-ums" options="-parameters" />
+      <module name="rabbit-test" options="-parameters" />
     </option>
   </component>
 </project>

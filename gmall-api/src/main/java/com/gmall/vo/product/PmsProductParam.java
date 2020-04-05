@@ -14,8 +14,6 @@ import java.util.List;
 @Data
 public class PmsProductParam extends Product implements Serializable {
 
-
-
     @ApiModelProperty("商品阶梯价格设置")
     private List<ProductLadder> productLadderList;
 

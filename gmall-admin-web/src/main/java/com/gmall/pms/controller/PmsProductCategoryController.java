@@ -6,6 +6,7 @@ import com.gmall.pms.service.ProductCategoryService;
 import com.gmall.to.CommonResult;
 import com.gmall.vo.PageInfoVo;
 import com.gmall.vo.product.PmsProductCategoryParam;
+import com.gmall.vo.product.PmsProductCategoryWithChildrenItem;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,7 +87,7 @@ public class PmsProductCategoryController {
     @GetMapping(value = "/list/withChildren")
     public Object listWithChildren() {
         //TODO 查询所有一级分类及子分类 ??
-        PageInfoVo pageInfoVo =  productCategoryService.cateGoryInfo();
-        return new CommonResult().success(pageInfoVo);
+         List<PmsProductCategoryWithChildrenItem> itemList =  productCategoryService.pmsProductCategoryWithChildrenItem(0);
+        return new CommonResult().success(itemList);
     }
 }

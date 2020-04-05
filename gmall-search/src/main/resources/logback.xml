@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--输出日志到控制台-->
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <!--负责把事件转成字符串，格式化日志信息的输出-->
+        <layout>
+            <pattern>
+                <!--%d是日期，%msg是日志消息%n换行-->
+                [%p]%d-%msg%n
+            </pattern>
+        </layout>
+    </appender>
+    <appender name="fileLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>debug</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+        <encoder>
+            <pattern>
+                [%p]%d-%msg%n
+            </pattern>
+        </encoder>
+        <!-- 指定文件的输出位置-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                G:/logs2019/gmall/search/%d.log
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+    <root level="debug">
+        <appender-ref ref="consoleLog"/>
+        <appender-ref ref="fileLog"/>
+    </root>
+</configuration>
