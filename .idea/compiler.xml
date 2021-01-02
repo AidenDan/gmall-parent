@@ -7,26 +7,41 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gmall-oms" />
-        <module name="gmall-pms" />
-        <module name="gmall-lock" />
+        <module name="rabbit-test" />
         <module name="gmall-sms" />
+        <module name="gmall-common" />
         <module name="gmall-ums" />
+        <module name="gmall-lock" />
         <module name="client1" />
         <module name="gmall-cart" />
         <module name="gmall-api" />
-        <module name="gmall-common" />
+        <module name="gmall-shop-portal" />
         <module name="gmall-admin-web" />
         <module name="gmall-mbg" />
-        <module name="rabbit-test" />
+        <module name="gmall-pms" />
         <module name="gmall-sso-server" />
         <module name="gmall-cms" />
-        <module name="gmall-shop-portal" />
         <module name="gmall-search" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="gmll-common" target="1.8" />
-      <module name="gmll-oms" target="1.8" />
+      <module name="client1" target="1.8" />
+      <module name="gmall-admin-web" target="1.8" />
+      <module name="gmall-api" target="1.8" />
+      <module name="gmall-cart" target="1.8" />
+      <module name="gmall-cms" target="1.8" />
+      <module name="gmall-common" target="1.8" />
+      <module name="gmall-lock" target="1.8" />
+      <module name="gmall-mbg" target="1.8" />
+      <module name="gmall-oms" target="1.8" />
+      <module name="gmall-parent" target="1.8" />
+      <module name="gmall-pms" target="1.8" />
+      <module name="gmall-search" target="1.8" />
+      <module name="gmall-shop-portal" target="1.8" />
+      <module name="gmall-sms" target="1.8" />
+      <module name="gmall-sso-server" target="1.8" />
+      <module name="gmall-ums" target="1.8" />
+      <module name="rabbit-test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -15,8 +15,15 @@
         <module>gmall-pms</module>
         <module>gmall-ums</module>
         <module>gmall-sms</module>
-        <module>gmall-common</module>
         <module>gmall-cms</module>
         <module>gmall-admin-web</module>
+        <module>gmall-shop-portal</module>
+        <module>client1</module>
+        <module>gmall-cart</module>
+        <module>gmall-lock</module>
+        <module>gmall-mbg</module>
+        <module>gmall-search</module>
+        <module>gmall-sso-server</module>
+        <module>rabbit-test</module>
     </modules>
 </project>
